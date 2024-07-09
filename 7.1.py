@@ -18,11 +18,11 @@ class Shop:
         file = open(self.__file_name, 'r')
         pprint(file.read())
         file.close()
-        return file
 
     def add(self, *products):
-        file = open(self.__file_name, 'a')
-        #file.write()
+        a = str(products)
+        file = open(self.__file_name, 'w')
+        file.write(a)
         file.close()
 
 
@@ -31,10 +31,10 @@ p1 = Product('Potato', 50.5, 'Vegetables')
 p2 = Product('Spaghetti', 3.4, 'Groceries')
 p3 = Product('Potato', 5.5, 'Vegetables')
 
+p1.__str__()
 p2.__str__()
 p3.__str__()
-p1.__str__()
 
-#s1.add(p1, p2, p3)
+s1.add(p1, p2, p3)
 
 s1.get_products()
