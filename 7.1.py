@@ -14,8 +14,8 @@ class Shop:
 
     def add(self, *products):
         file = open(self.__file_name, 'a')
-        list_products = self.get_products()
         for product in products:
+            list_products = self.get_products()
             if product.name and str(product.weight) not in list_products:
                 file.write(str(product) + '\n')
             else:
@@ -40,12 +40,12 @@ p6 = Product('Spaghetti', 3.6, 'Groceries')
 
 print(p2)  # __str__
 print()
-s1.add(p1, p2, p3)
+s1.add(p1, p2, p3, p4)
 print(s1.get_products())
 s1.add(p5)
 s1.add(p6)
 print(s1.get_products())
-# s1.add(p4)
-# print(s1.get_products())
-# s2.add(p2, p4)
-# print(s2.get_products())
+s1.add(p3, p6)
+print(s1.get_products())
+s2.add(p2, p4)
+print(s2.get_products())
