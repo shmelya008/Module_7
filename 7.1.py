@@ -18,7 +18,9 @@ class Shop:
             list_products = self.get_products()
             if product.name and str(product.weight) not in list_products:
                 file.write(str(product) + '\n')
-            else:
+            file.close()
+            file = open(self.__file_name, 'a')
+            if product.name and str(product.weight) in list_products:
                 print(f'Продукт {product.name} {product.weight} уже есть в магазине! (См. список: {self.__file_name})')
         file.close()
 
@@ -40,10 +42,10 @@ p6 = Product('Spaghetti', 3.6, 'Groceries')
 
 print(p2)  # __str__
 print()
-s1.add(p1, p2, p3, p4)
+s1.add(p1, p2, p1, p1, p6, p5)
 print(s1.get_products())
 s1.add(p5)
-s1.add(p6)
+s1.add(p6, p6)
 print(s1.get_products())
 s1.add(p3, p6)
 print(s1.get_products())
